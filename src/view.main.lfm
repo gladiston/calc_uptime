@@ -1,0 +1,242 @@
+object Form1: TForm1
+  Left = 321
+  Height = 426
+  Top = 31
+  Width = 800
+  Caption = 'Form1'
+  ClientHeight = 426
+  ClientWidth = 800
+  Font.Height = -16
+  Font.Name = 'Segoe UI'
+  OnCreate = FormCreate
+  OnShow = FormShow
+  object pnlCalcular_Sair: TPanel
+    Left = 2
+    Height = 50
+    Top = 374
+    Width = 796
+    Align = alBottom
+    BorderSpacing.Around = 2
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 796
+    TabOrder = 0
+    object btnCalcular: TBitBtn
+      Left = 638
+      Height = 46
+      Top = 2
+      Width = 156
+      Align = alRight
+      BorderSpacing.Around = 2
+      Caption = 'Calcular'
+      Default = True
+      OnClick = btnCalcularClick
+      TabOrder = 0
+    end
+  end
+  object memoResultados: TMemo
+    Left = 2
+    Height = 222
+    Top = 150
+    Width = 796
+    Align = alClient
+    BorderSpacing.Around = 2
+    BorderStyle = bsNone
+    Color = clInfoBk
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -16
+    Font.Name = 'Consolas'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 1
+  end
+  object gbUptime: TGroupBox
+    Left = 2
+    Height = 85
+    Top = 2
+    Width = 796
+    Align = alTop
+    BorderSpacing.Around = 2
+    Caption = 'Calcular o uptime:'
+    ClientHeight = 59
+    ClientWidth = 792
+    TabOrder = 2
+    object gb_dias: TGroupBox
+      Left = 270
+      Height = 55
+      Top = 2
+      Width = 58
+      Align = alLeft
+      BorderSpacing.Around = 2
+      Caption = 'Dias:'
+      ClientHeight = 29
+      ClientWidth = 54
+      TabOrder = 1
+      object edtDias: TEdit
+        Left = 2
+        Height = 25
+        Top = 2
+        Width = 50
+        Align = alClient
+        Alignment = taCenter
+        BorderSpacing.Around = 2
+        NumbersOnly = True
+        TabOrder = 0
+        Text = '00'
+      end
+    end
+    object gb_horas: TGroupBox
+      Left = 330
+      Height = 55
+      Top = 2
+      Width = 58
+      Align = alLeft
+      BorderSpacing.Around = 2
+      Caption = 'Horas:'
+      ClientHeight = 29
+      ClientWidth = 54
+      TabOrder = 2
+      object edtHoras: TEdit
+        Left = 2
+        Height = 25
+        Top = 2
+        Width = 50
+        Align = alClient
+        Alignment = taCenter
+        BorderSpacing.Around = 2
+        NumbersOnly = True
+        TabOrder = 0
+        Text = '00'
+      end
+    end
+    object gb_minutos: TGroupBox
+      Left = 390
+      Height = 55
+      Top = 2
+      Width = 58
+      Align = alLeft
+      BorderSpacing.Around = 2
+      Caption = 'Min:'
+      ClientHeight = 29
+      ClientWidth = 54
+      TabOrder = 3
+      object edtMinutos: TEdit
+        Left = 2
+        Height = 25
+        Top = 2
+        Width = 50
+        Align = alClient
+        Alignment = taCenter
+        BorderSpacing.Around = 2
+        NumbersOnly = True
+        TabOrder = 0
+        Text = '00'
+      end
+    end
+    object gb_segs: TGroupBox
+      Left = 450
+      Height = 55
+      Top = 2
+      Width = 58
+      Align = alLeft
+      BorderSpacing.Around = 2
+      Caption = 'Seg:'
+      ClientHeight = 29
+      ClientWidth = 54
+      TabOrder = 4
+      object edtSegundos: TEdit
+        Left = 2
+        Height = 25
+        Top = 2
+        Width = 50
+        Align = alClient
+        Alignment = taCenter
+        BorderSpacing.Around = 2
+        NumbersOnly = True
+        TabOrder = 0
+        Text = '00'
+      end
+    end
+    object gb_tag: TGroupBox
+      Left = 2
+      Height = 55
+      Top = 2
+      Width = 266
+      Align = alLeft
+      BorderSpacing.Around = 2
+      Caption = 'Servidor ou tag de identificação'
+      ClientHeight = 29
+      ClientWidth = 262
+      TabOrder = 0
+      object tagname: TEdit
+        Left = 2
+        Height = 25
+        Hint = 'Digite o nome do servidor ou nome de tag que identifique este calculo'
+        Top = 2
+        Width = 258
+        Align = alClient
+        BorderSpacing.Around = 2
+        OnExit = tagnameExit
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        TextHint = 'Digite o nome do servidor ou nome de tag que identifique este calculo'
+      end
+    end
+  end
+  object gb_apartir_de: TGroupBox
+    Left = 0
+    Height = 59
+    Top = 89
+    Width = 800
+    Align = alTop
+    Caption = 'Calcular uptime a partir de:'
+    ClientHeight = 33
+    ClientWidth = 796
+    TabOrder = 3
+    object cbox_data_atual: TCheckBox
+      Left = 2
+      Height = 29
+      Top = 2
+      Width = 191
+      Align = alLeft
+      BorderSpacing.Around = 2
+      Caption = 'a partir da data atual, ou:'
+      OnChange = cbox_data_atualChange
+      TabOrder = 0
+    end
+    object edtDataReferencia: TDateTimePicker
+      Left = 195
+      Height = 29
+      Top = 2
+      Width = 181
+      CenturyFrom = 1941
+      MaxDate = 2958465
+      MinDate = -53780
+      TabOrder = 1
+      BorderStyle = bsNone
+      BorderSpacing.Around = 2
+      TrailingSeparator = False
+      TextForNullDate = 'NULL'
+      LeadingZeros = True
+      Align = alLeft
+      Kind = dtkDateTime
+      TimeFormat = tf24
+      TimeDisplay = tdHMS
+      DateMode = dmUpDown
+      Date = 44901
+      Time = 0.509302673614002
+      UseDefaultSeparators = True
+      HideDateTimeParts = []
+      MonthNames = 'Long'
+    end
+  end
+  object Timer_Update_DataReferencia: TTimer
+    OnTimer = Timer_Update_DataReferenciaTimer
+    Left = 380
+    Top = 160
+  end
+end
